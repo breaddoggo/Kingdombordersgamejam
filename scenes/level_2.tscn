@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ckjdjh1uvxhom"]
+[gd_scene load_steps=25 format=3 uid="uid://ckjdjh1uvxhom"]
 
 [ext_resource type="PackedScene" uid="uid://btkwhj6sqfuux" path="res://scenes/player.tscn" id="1_hjudn"]
 [ext_resource type="AudioStream" uid="uid://cm6tidgllcxfh" path="res://assets/6197514153361408.wav" id="2_2sufc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hi0b8bqfjjl" path="res://assets/pixil-frame-0_9.png" id="9_c8ko4"]
 [ext_resource type="Texture2D" uid="uid://cy2f5tay0k83a" path="res://assets/pixil-frame-0_10.png" id="10_q8w1i"]
 [ext_resource type="PackedScene" uid="uid://dpjkuk4ca28bk" path="res://scenes/knight.tscn" id="11_gh7dg"]
+[ext_resource type="PackedScene" uid="uid://buk1fyous2dmq" path="res://note.tscn" id="12_lvnps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chu2u"]
 texture = ExtResource("3_3ebqa")
@@ -82,6 +83,21 @@ sources/8 = SubResource("TileSetAtlasSource_n7gde")
 sources/9 = SubResource("TileSetAtlasSource_qdixc")
 sources/0 = SubResource("TileSetAtlasSource_chu2u")
 
+[sub_resource type="Animation" id="Animation_qhcqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1824, -59)]
+}
+
 [sub_resource type="Animation" id="Animation_cyoy3"]
 resource_name = "new_animation"
 loop_mode = 2
@@ -96,21 +112,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1015, -59), Vector2(1015, -59)]
-}
-
-[sub_resource type="Animation" id="Animation_qhcqk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1824, -59)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ao5my"]
@@ -134,7 +135,9 @@ z_index = 2
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_l57t4")
 format = 2
-layer_0/tile_data = PackedInt32Array(393184, 3, 0, 393194, 4, 0, 393204, 4, 0, 393214, 4, 0, 327688, 4, 0, 327698, 4, 0, 327708, 4, 0, 327718, 4, 0, 327728, 4, 0, 327738, 4, 0, 327748, 4, 0, 327758, 4, 0, 327768, 4, 0, 327778, 4, 0, 327788, 4, 0, 327798, 0, 0, 327919, 4, 0, 327950, 4, 0, 327981, 4, 0, 327991, 4, 0, 328001, 4, 0, 328011, 4, 0, 328021, 4, 0, 328031, 4, 0, 328041, 4, 0, 328051, 0, 0, 327823, 4, 0, 327849, 4, 0, 327874, 4, 0, 327898, 4, 0, 327940, 4, 0, 327971, 3, 0)
+layer_0/name = "Background"
+layer_0/tile_data = PackedInt32Array(393184, 3, 0, 393194, 4, 0, 393204, 4, 0, 393214, 4, 0, 327688, 4, 0, 327698, 4, 0, 327708, 4, 0, 327718, 4, 0, 327728, 4, 0, 327738, 4, 0, 327748, 4, 0, 327758, 4, 0, 327768, 4, 0, 327778, 4, 0, 327788, 4, 0, 327798, 0, 0, 327919, 4, 0, 327950, 4, 0, 327981, 4, 0, 327991, 4, 0, 328001, 4, 0, 328011, 4, 0, 328021, 4, 0, 328031, 4, 0, 328041, 4, 0, 328051, 0, 0, 327823, 4, 0, 327849, 4, 0, 327874, 4, 0, 327898, 4, 0, 327940, 4, 0, 327971, 3, 0, -130978, 5, 1, -131028, 6, 2, 4063517, 4, 0, -262077, 7, 0, -851901, 7, 0, -1507261, 8, 0, -1507251, 9, 0, -1507241, 9, 0, -1507271, 8, 0, -1507281, 9, 0, -2097086, 8, 0, -2162613, 8, 0, -2162603, 8, 0, -2097096, 9, 0, -2686912, 9, 0, -2621368, 9, 0)
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Knight" parent="." instance=ExtResource("11_gh7dg")]
 position = Vector2(1824, -59)
@@ -144,3 +147,14 @@ libraries = {
 "": SubResource("AnimationLibrary_ao5my")
 }
 autoplay = "new_animation"
+
+[node name="Note" parent="." instance=ExtResource("12_lvnps")]
+position = Vector2(4557, 881)
+
+[node name="Label" type="Label" parent="Note"]
+visible = false
+offset_left = -277.0
+offset_top = -142.0
+offset_right = 278.0
+offset_bottom = -41.0
+text = "It's burning. All of it. More accurately, devouring."

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkcjyofgd4sue"]
+[gd_scene load_steps=8 format=3 uid="uid://dkcjyofgd4sue"]
 
 [ext_resource type="Texture2D" uid="uid://dt1ouijnf0sax" path="res://assets/spritesheet.png" id="1_aotdt"]
 [ext_resource type="Script" path="res://scripts/monster.gd" id="1_ci7uw"]
@@ -7,7 +7,11 @@
 atlas = ExtResource("1_aotdt")
 region = Rect2(0, 0, 640, 640)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbwnd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2agl"]
+atlas = ExtResource("1_aotdt")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xohia"]
 atlas = ExtResource("1_aotdt")
 region = Rect2(640, 0, 640, 640)
 
@@ -16,16 +20,45 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rjywm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bbwnd")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2agl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xohia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2agl")
+}],
+"loop": true,
+"name": &"roar",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xvha"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lblw"]
 size = Vector2(500, 611)
 
 [node name="Monster" type="Area2D"]
@@ -33,11 +66,14 @@ script = ExtResource("1_ci7uw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bdryl")
+animation = &"roar"
 autoplay = "default"
+frame = 2
+frame_progress = 0.245137
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(70, 15.5)
-shape = SubResource("RectangleShape2D_8xvha")
+shape = SubResource("RectangleShape2D_5lblw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
