@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ckjdjh1uvxhom"]
+[gd_scene load_steps=26 format=3 uid="uid://ckjdjh1uvxhom"]
 
 [ext_resource type="PackedScene" uid="uid://btkwhj6sqfuux" path="res://scenes/player.tscn" id="1_hjudn"]
 [ext_resource type="AudioStream" uid="uid://cm6tidgllcxfh" path="res://assets/6197514153361408.wav" id="2_2sufc"]
@@ -120,6 +120,9 @@ _data = {
 "new_animation": SubResource("Animation_cyoy3")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bkhe"]
+size = Vector2(70, 235)
+
 [node name="Level2" type="Node2D"]
 modulate = Color(0.75, 0.75, 0.75, 1)
 
@@ -158,3 +161,10 @@ offset_top = -142.0
 offset_right = 278.0
 offset_bottom = -41.0
 text = "It's burning. All of it. More accurately, devouring."
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(5925, -92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(38, 3)
+shape = SubResource("RectangleShape2D_2bkhe")

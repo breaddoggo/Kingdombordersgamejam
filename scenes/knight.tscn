@@ -63,7 +63,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0r4m"]
-size = Vector2(50, 140)
+size = Vector2(65, 140)
 
 [node name="Knight" type="Area2D"]
 script = ExtResource("1_d83i6")
@@ -74,7 +74,7 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 10)
+position = Vector2(2.5, 10)
 shape = SubResource("RectangleShape2D_k0r4m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
