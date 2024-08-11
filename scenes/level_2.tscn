@@ -1,0 +1,146 @@
+[gd_scene load_steps=24 format=3 uid="uid://ckjdjh1uvxhom"]
+
+[ext_resource type="PackedScene" uid="uid://btkwhj6sqfuux" path="res://scenes/player.tscn" id="1_hjudn"]
+[ext_resource type="AudioStream" uid="uid://cm6tidgllcxfh" path="res://assets/6197514153361408.wav" id="2_2sufc"]
+[ext_resource type="Texture2D" uid="uid://c8p283nxbkj53" path="res://assets/1723138116754.png" id="3_3ebqa"]
+[ext_resource type="Texture2D" uid="uid://c2cbytkxod83c" path="res://assets/1723138136061.png" id="4_4m54p"]
+[ext_resource type="Texture2D" uid="uid://bdbgm5i7sayiw" path="res://assets/1723138353170.png" id="5_o1mh3"]
+[ext_resource type="Texture2D" uid="uid://c4r84yn116rcg" path="res://assets/pixil-frame-0_5.png" id="6_w04do"]
+[ext_resource type="Texture2D" uid="uid://boys5lihj004q" path="res://assets/pixil-frame-0_6.png" id="7_84hyd"]
+[ext_resource type="Texture2D" uid="uid://c157woqvcsjpr" path="res://assets/pixil-frame-0_8.png" id="8_f621v"]
+[ext_resource type="Texture2D" uid="uid://d4hi0b8bqfjjl" path="res://assets/pixil-frame-0_9.png" id="9_c8ko4"]
+[ext_resource type="Texture2D" uid="uid://cy2f5tay0k83a" path="res://assets/pixil-frame-0_10.png" id="10_q8w1i"]
+[ext_resource type="PackedScene" uid="uid://dpjkuk4ca28bk" path="res://scenes/knight.tscn" id="11_gh7dg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chu2u"]
+texture = ExtResource("3_3ebqa")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.9031, -60.1041, 79.9031, -60.8112, 79.9031, 79.9031, -79.196, 79.196)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3l87y"]
+texture = ExtResource("4_4m54p")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.196, -60.1041, 79.9031, -60.1041, 80.6102, 79.9031, -79.9031, 79.9031)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lffq5"]
+texture = ExtResource("5_o1mh3")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.196, -60.1041, 79.9031, -60.1041, 80.6102, 79.9031, -79.9031, 79.9031)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7twi8"]
+texture = ExtResource("6_w04do")
+0:1/size_in_atlas = Vector2i(10, 9)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36peo"]
+texture = ExtResource("7_84hyd")
+0:2/size_in_atlas = Vector2i(10, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyyr5"]
+texture = ExtResource("8_f621v")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n7gde"]
+texture = ExtResource("9_c8ko4")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdixc"]
+texture = ExtResource("10_q8w1i")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_l57t4"]
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_3l87y")
+sources/4 = SubResource("TileSetAtlasSource_lffq5")
+sources/5 = SubResource("TileSetAtlasSource_7twi8")
+sources/6 = SubResource("TileSetAtlasSource_36peo")
+sources/7 = SubResource("TileSetAtlasSource_fyyr5")
+sources/8 = SubResource("TileSetAtlasSource_n7gde")
+sources/9 = SubResource("TileSetAtlasSource_qdixc")
+sources/0 = SubResource("TileSetAtlasSource_chu2u")
+
+[sub_resource type="Animation" id="Animation_cyoy3"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1015, -59), Vector2(1015, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_qhcqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1824, -59)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ao5my"]
+_data = {
+"RESET": SubResource("Animation_qhcqk"),
+"new_animation": SubResource("Animation_cyoy3")
+}
+
+[node name="Level2" type="Node2D"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_hjudn")]
+position = Vector2(-2, -94)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2sufc")
+autoplay = true
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 2
+position = Vector2(-2, 0)
+tile_set = SubResource("TileSet_l57t4")
+format = 2
+layer_0/tile_data = PackedInt32Array(393184, 3, 0, 393194, 4, 0, 393204, 4, 0, 393214, 4, 0, 327688, 4, 0, 327698, 4, 0, 327708, 4, 0, 327718, 4, 0, 327728, 4, 0, 327738, 4, 0, 327748, 4, 0, 327758, 4, 0, 327768, 4, 0, 327778, 4, 0, 327788, 4, 0, 327798, 0, 0, 327919, 4, 0, 327950, 4, 0, 327981, 4, 0, 327991, 4, 0, 328001, 4, 0, 328011, 4, 0, 328021, 4, 0, 328031, 4, 0, 328041, 4, 0, 328051, 0, 0, 327823, 4, 0, 327849, 4, 0, 327874, 4, 0, 327898, 4, 0, 327940, 4, 0, 327971, 3, 0)
+
+[node name="Knight" parent="." instance=ExtResource("11_gh7dg")]
+position = Vector2(1824, -59)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Knight"]
+libraries = {
+"": SubResource("AnimationLibrary_ao5my")
+}
+autoplay = "new_animation"

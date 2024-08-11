@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://paugj6m20a4r"]
+
+[ext_resource type="PackedScene" uid="uid://btkwhj6sqfuux" path="res://scenes/player.tscn" id="1_jix3w"]
+[ext_resource type="Texture2D" uid="uid://c8p283nxbkj53" path="res://assets/1723138116754.png" id="2_7cn8w"]
+[ext_resource type="Texture2D" uid="uid://c2cbytkxod83c" path="res://assets/1723138136061.png" id="3_waqap"]
+[ext_resource type="Texture2D" uid="uid://bdbgm5i7sayiw" path="res://assets/1723138353170.png" id="4_65d0t"]
+[ext_resource type="PackedScene" uid="uid://buk1fyous2dmq" path="res://scenes/note.tscn" id="10_klp5u"]
+[ext_resource type="AudioStream" uid="uid://cm6tidgllcxfh" path="res://assets/6197514153361408.wav" id="11_m2opp"]
+[ext_resource type="PackedScene" uid="uid://q7p21434tn" path="res://scenes/door.tscn" id="12_ewn3r"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="13_e25jk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_588qy"]
+texture = ExtResource("2_7cn8w")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.9031, -59.397, 79.9031, -59.397, 79.196, 79.9031, -80.6102, 79.9031)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkkw5"]
+texture = ExtResource("3_waqap")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.9031, -59.397, 79.9031, -59.397, 79.196, 79.9031, -80.6102, 79.9031)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egj3c"]
+texture = ExtResource("4_65d0t")
+0:0/size_in_atlas = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-79.9031, -59.397, 79.9031, -59.397, 79.196, 79.9031, -80.6102, 79.9031)
+
+[sub_resource type="TileSet" id="TileSet_4v3i3"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_588qy")
+sources/2 = SubResource("TileSetAtlasSource_jkkw5")
+sources/3 = SubResource("TileSetAtlasSource_egj3c")
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jix3w")]
+z_index = 1
+position = Vector2(-460, -60)
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 2
+position = Vector2(-2, 0)
+tile_set = SubResource("TileSet_4v3i3")
+format = 2
+layer_0/tile_data = PackedInt32Array(393184, 2, 0, 393204, 3, 0, 393214, 3, 0, 327688, 3, 0, 327698, 3, 0, 327708, 3, 0, 327718, 3, 0, 327728, 3, 0, 327738, 3, 0, 327748, 3, 0, 327758, 3, 0, 327768, 3, 0, 327778, 3, 0, 327788, 3, 0, 327798, 1, 0, 327919, 3, 0, 327950, 3, 0, 327981, 3, 0, 327991, 3, 0, 328001, 3, 0, 328011, 3, 0, 328021, 3, 0, 328031, 3, 0, 328041, 4, 0, 328051, 0, 0, 327823, 3, 0, 327849, 3, 0, 327874, 3, 0, 327898, 3, 0, 327940, 3, 0, 327971, 2, 0, 393194, 3, 0, 328040, 3, 0, 328050, 1, 0)
+
+[node name="Note" parent="." instance=ExtResource("10_klp5u")]
+position = Vector2(-461, -81)
+
+[node name="Label" type="Label" parent="Note"]
+visible = false
+offset_left = -277.0
+offset_top = -142.0
+offset_right = 278.0
+offset_bottom = -41.0
+text = "Arrow keys or WASD to move
+Ctrl to crouch (so the guard won't notice you)
+Shift to pickpocket when crouching (you'll have a chance to get a sword)
+Left click to attack if you have a sword"
+
+[node name="Note2" parent="." instance=ExtResource("10_klp5u")]
+position = Vector2(1898, -81)
+
+[node name="Label" type="Label" parent="Note2"]
+visible = false
+offset_left = -77.0
+offset_top = -94.0
+offset_right = 478.0
+offset_bottom = 7.0
+text = "You can jump with space "
+
+[node name="Note3" parent="." instance=ExtResource("10_klp5u")]
+position = Vector2(5490, -81)
+
+[node name="Label" type="Label" parent="Note3"]
+visible = false
+offset_left = -143.0
+offset_top = -95.0
+offset_right = 412.0
+offset_bottom = 6.0
+text = "Go through the door to the next level"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_m2opp")
+autoplay = true
+
+[node name="Door" parent="." instance=ExtResource("12_ewn3r")]
+position = Vector2(5863, -130)
+script = ExtResource("13_e25jk")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkcjyofgd4sue"]
+
+[ext_resource type="Texture2D" uid="uid://dt1ouijnf0sax" path="res://assets/spritesheet.png" id="1_aotdt"]
+[ext_resource type="Script" path="res://scripts/monster.gd" id="1_ci7uw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjywm"]
+atlas = ExtResource("1_aotdt")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbwnd"]
+atlas = ExtResource("1_aotdt")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdryl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjywm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbwnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xvha"]
+size = Vector2(500, 611)
+
+[node name="Monster" type="Area2D"]
+script = ExtResource("1_ci7uw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bdryl")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(70, 15.5)
+shape = SubResource("RectangleShape2D_8xvha")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
